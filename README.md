@@ -34,6 +34,6 @@ Elementos principales de la página:
 - Un botón para desencriptar
 - Área para mostrar el texto encriptado/desencriptado
 
-### Extra!
+### Extra
 
 ¡Un pie de página con los datos de la persona que desarrolló el sitio web!
