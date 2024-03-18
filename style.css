@@ -1,7 +1,10 @@
+/* Global Style */
 body {
   font-family: "Fredoka", sans-serif;
-  animation: changeFontColor 91440ms steps(1, end) infinite; 
-  transition: 0.5s ease;
+  transition: color 0.5s ease;
+  animation: changeFontColor 91440ms steps(1, end) infinite;
+  height: 100vh;
+  overflow: hidden;
 }
 
 @keyframes changeFontColor {
@@ -26,23 +29,39 @@ body {
 h1 {
   text-align: center;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 60px;
   margin: 50px;
 }
 
-textarea{
-  width: calc(100% - 40px);
-  max-width: 560px;
-  height: 200px;
-  padding: 10px;
+.logo {
+  width: 6.5%;
+  height: 15%;
+  position: absolute;
+  top: 1.5%;
+  left: 22.5%;
+}
+
+.container {
+  display: inline-block;
+  vertical-align: top;
+  width: 65%;
+  height: 100vh;
+}
+
+textarea {
+  display: inline-block;
+  vertical-align: top;
+  width: 75%;
+  margin: 0 0 0 20%;
+  height: 55vh;
   border: none;
-  border-radius: 10px;
+  outline: none;
   resize: none;
-  font-size: 20px;
+  font-size: 30px;
+  border-radius: 10px;
+  padding: 10px;
   color: inherit;
-  background-color: rgba(255, 255, 255, 0.5);
-  position: relative;
-  left: 80px;
+  background-color: rgba(255, 255, 255, 0.2);
   transition: background-color 0.5s ease;
   animation: changeBackgroundColor 91440ms steps(1, end) infinite;
 }
@@ -51,17 +70,51 @@ textarea::placeholder {
   color: inherit;
 }
 
-@keyframes changeBackgroundColor {
-  0%, 33.057%, 99.928% { background-color: rgba(255, 255, 255, 0.5); }
-
-  /* Rain and Night */
-  16.393%, 66.451% { background-color: rgba(0, 0, 0, 0.5); }
+.output-box {
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+  margin: 0 10% 0 0;
+  height: 55vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  animation: changeBackgroundColor 91440ms steps(1, end) infinite;
 }
 
-@media screen and (max-width: 768px) {
-  textarea, button {
-    width: calc(100% - 20px);
-    max-width: none;
-    margin: 0 10px;
-  }
+.output-text {
+  height: 50vh;
+}
+
+button {
+  width: 80%;
+  height: 5vh;
+  background-color: #04ca0bde;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 1s ease;
+  color: #000000;
+  font-weight: bold;
+  margin: auto;
+}
+
+button:hover {
+  color: #000000;
+  background-color: #0ff316;
+  transition: 1s ease;
+}
+
+button:active {
+  color: #ffffff;
+  background-color: #000000;
+  transition: 0.1s ease;
+}
+
+@keyframes changeBackgroundColor {
+  0%, 33.057%, 99.928% { background-color: rgba(255, 255, 255, 0.2); }
+  16.393%, 66.451% { background-color: rgba(0, 0, 0, 0.2); }
 }
