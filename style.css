@@ -1,31 +1,67 @@
 body {
-    font-family: "Fredoka", sans-serif;
-    animation: changeFontColor 91440ms steps(1, end) infinite; 
-    transition: 0.5s ease;
-  }
+  font-family: "Fredoka", sans-serif;
+  animation: changeFontColor 91440ms steps(1, end) infinite; 
+  transition: 0.5s ease;
+}
+
+@keyframes changeFontColor {
+  /* Day and Afternoon */
+  0%, 33.057%, 99.928%{ color: black; }
   
-  @keyframes changeFontColor {
-    /* Day and Afternoon */
-    0%, 33.09%, 99.81%{ color: black; }
-    
-    /* Rain and Night */
-    16.40%, 66.45%{ color: white; }
+  /* Rain and Night */
+  16.393%, 66.451%{ color: white; }
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('gif/stardew_valley_dynamic_wallpaper_by_bratzoid_slowed.gif');
+  background-size: cover;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  margin: 50px;
+}
+
+textarea{
+  width: calc(100% - 40px);
+  max-width: 560px;
+  height: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  resize: none;
+  font-size: 20px;
+  color: inherit;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  left: 80px;
+  transition: background-color 0.5s ease;
+  animation: changeBackgroundColor 91440ms steps(1, end) infinite;
+}
+
+textarea::placeholder {
+  color: inherit;
+}
+
+@keyframes changeBackgroundColor {
+  0%, 33.057%, 99.928% { background-color: rgba(255, 255, 255, 0.5); }
+
+  /* Rain and Night */
+  16.393%, 66.451% { background-color: rgba(0, 0, 0, 0.5); }
+}
+
+@media screen and (max-width: 768px) {
+  textarea, button {
+    width: calc(100% - 20px);
+    max-width: none;
+    margin: 0 10px;
   }
-  
-  .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image: url('gif/stardew_valley_dynamic_wallpaper_by_bratzoid_slowed.gif');
-    background-size: cover;
-  }
-  
-  h1 {
-    text-align: center;
-    font-weight: bold;
-    font-size: 30px;
-    margin: 50px;
-  }
+}
