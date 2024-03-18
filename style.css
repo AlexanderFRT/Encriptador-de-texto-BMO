@@ -7,14 +7,6 @@ body {
   overflow: hidden;
 }
 
-@keyframes changeFontColor {
-  /* Day and Afternoon */
-  0%, 33.057%, 99.928%{ color: black; }
-  
-  /* Rain and Night */
-  16.393%, 66.451%{ color: white; }
-}
-
 .background {
   position: fixed;
   top: 0;
@@ -26,19 +18,23 @@ body {
   background-size: cover;
 }
 
-h1 {
-  text-align: center;
-  font-weight: bold;
-  font-size: 60px;
-  margin: 50px;
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 0 0;
 }
 
 .logo {
   width: 6.5%;
-  height: 15%;
-  position: absolute;
-  top: 1.5%;
-  left: 22.5%;
+  height: auto;
+  margin: 0 20px 20px 0;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 60px;
+  margin: 0 0 20px 0;
 }
 
 .container {
@@ -68,6 +64,34 @@ textarea {
 
 textarea::placeholder {
   color: inherit;
+}
+
+.instructions {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 1% 0 0 20%;
+}
+
+.instructions img {
+  margin-right: 5px;
+  width: 15px;
+  height: auto;
+  animation: changeImgColor 91440ms steps(1, end) infinite;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 75%;
+  margin-top: 10px;
+}
+
+.buttons button {
+  width: 30%;
+  border-radius: 15px;
+  margin: 0 5px;
 }
 
 .output-box {
@@ -114,7 +138,19 @@ button:active {
   transition: 0.1s ease;
 }
 
+@keyframes changeFontColor {
+  /* Day and Afternoon */
+  0%, 33.057%, 99.928%{ color: black; }
+  /* Rain and Night */
+  16.393%, 66.451%{ color: white; }
+}
+
 @keyframes changeBackgroundColor {
   0%, 33.057%, 99.928% { background-color: rgba(255, 255, 255, 0.2); }
   16.393%, 66.451% { background-color: rgba(0, 0, 0, 0.2); }
+}
+
+@keyframes changeImgColor {
+  0%, 33.057%, 99.928% { filter: invert(100%) brightness(0); } /* Bright black */
+  16.393%, 66.451% { filter: invert(0%) brightness(10000%); } /* Bright white */
 }

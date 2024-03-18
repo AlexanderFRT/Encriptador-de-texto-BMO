@@ -18,21 +18,15 @@
     <body>
         <div class="background"></div>
         <header>
+            <img src="images/BMO.png" alt="Beemo" class="logo">
             <!-- Título del sitio web -->
             <h1>BMO, el Maestro del Cifrado</h1>
-            <img src="images/BMO.png" alt="Beemo" class="logo">
         </header>
 
         <main>
             <div class="container">
                 <!-- Campo para el texto que va a ser encriptado/desencriptado -->
-                <textarea id="input-text" placeholder="Inserte su texto aquí"></textarea>
-                <!-- Área para mostrar el texto encriptado/desencriptado -->
-            </div>
-            <div class="output-box">
-                <div class="output-text"></div>
-                <button id="copy-button">Copiar</button>
-            </div>
+                <textarea id="input-text" placeholder="Ingresa tu mensaje secreto aquí..."></textarea>
                 <!-- Advertencia para el usuario de como usar el encriptador correctamente -->
                 <p class="instructions"><img src="images/bi_exclamation-circle-fill.png" alt="Warning sign">Solo letras minúsculas y sin acentos</p>   
                 <!-- Un botón para encriptar y un botón para desencriptar -->
@@ -40,6 +34,10 @@
                     <button id="encrypt-button">Encriptar</button>
                     <button id="decrypt-button">Desencriptar</button>
                 </div>
+            </div>
+            <div class="output-box">
+                <div class="output-text"></div>
+                <button id="copy-button">Copiar</button>
             </div>
         </main>
 
