@@ -26,7 +26,7 @@
         <main>
             <div class="container">
                 <!-- Campo para el texto que va a ser encriptado/desencriptado -->
-                <textarea id="input-text" placeholder="Ingresa tu mensaje secreto aquí..."></textarea>
+                <textarea id="input-text" maxlength="750" placeholder="Ingresa tu mensaje secreto aquí..."></textarea>
                 <!-- Advertencia para el usuario de como usar el encriptador correctamente -->
                 <p class="instructions"><img src="images/bi_exclamation-circle-fill.png" alt="Warning sign">Solo letras minúsculas y sin acentos</p>   
                 <!-- Un botón para encriptar y un botón para desencriptar -->
@@ -37,7 +37,7 @@
             </div>
             <div class="output-box">
                 <div class="output-text"></div>
-                <button id="copy-button">Copiar</button>
+                <button id="copy-button" style="display: none;">Copiar</button>
             </div>
         </main>
 

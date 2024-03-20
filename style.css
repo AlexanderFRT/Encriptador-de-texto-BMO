@@ -83,15 +83,51 @@ textarea::placeholder {
 
 .buttons {
   display: flex;
-  justify-content: center;
-  width: 75%;
-  margin-top: 10px;
+  justify-content: space-between;
+  width: inherit;
+  gap: 3%;
+  margin: 1% 0 0 26%;
 }
 
 .buttons button {
-  width: 30%;
+  font-size: 20px;
+  height: 7vh;
+  width: calc(65% - 3%);
   border-radius: 15px;
-  margin: 0 5px;
+}
+
+#encrypt-button{
+  color: #000000;
+  background-color: #58e9ffe8;
+}
+
+#encrypt-button:hover {
+  color: #000000;
+  background-color: #2ee1fd;
+  transition: 1s ease;
+}
+
+#encrypt-button:active {
+  color: #FFFFFF;
+  background-color: #000000;
+  transition: 0.1s ease;
+}
+
+#decrypt-button{
+  color: #000000;
+  background-color: #fcff47e8;
+}
+
+#decrypt-button:hover {
+  color: #000000;
+  background-color: #fafd18;
+  transition: 1s ease;
+}
+
+#decrypt-button:active {
+  color: #FFFFFF;
+  background-color: #000000;
+  transition: 0.1s ease;
 }
 
 .output-box {
@@ -114,21 +150,21 @@ textarea::placeholder {
 button {
   width: 80%;
   height: 5vh;
-  background-color: #04ca0bde;
+  background-color: #35ff3cde;
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 16px;
   transition: 1s ease;
   color: #000000;
+  font-size: 18px;
   font-weight: bold;
   margin: auto;
 }
 
 button:hover {
   color: #000000;
-  background-color: #0ff316;
+  background-color: #22ff2a;
   transition: 1s ease;
 }
 
