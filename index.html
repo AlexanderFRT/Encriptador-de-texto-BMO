@@ -24,9 +24,9 @@
         </header>
 
         <main>
-            <div class="container">
+            <div class="main-container">
                 <!-- Campo para el texto que va a ser encriptado/desencriptado -->
-                <textarea id="input-text" maxlength="750" placeholder="Ingresa tu mensaje secreto aquí..."></textarea>
+                <textarea id="input-text" maxlength="700" placeholder="Ingresa tu mensaje secreto aquí..."></textarea>
                 <!-- Advertencia para el usuario de como usar el encriptador correctamente -->
                 <p class="instructions"><img src="images/bi_exclamation-circle-fill.png" alt="Warning sign">Solo letras minúsculas y sin acentos</p>   
                 <!-- Un botón para encriptar y un botón para desencriptar -->
@@ -36,13 +36,26 @@
                 </div>
             </div>
             <div class="output-box">
-                <div class="output-text"></div>
+                <div class="output-text">
+                    <img src="images/BMO Juggling V2.png" alt="Beemo 2" class="output-beemo" >
+                    <p class="output-text-1" style="display: block;">¡BMO está listo para ayudar!</p>
+                    <p class="output-text-2" style="display: block;">Ingresa el mensaje que quieras cifrar o descifrar, amigo.</p>
+                    <p class="output-text-3" style="display: none;">¡BMO no puede encontrar ningún mensaje!</p>
+                </div>
                 <button id="copy-button" style="display: none;">Copiar</button>
-            </div>
+              </div>
         </main>
 
-        <footer>
+        <footer class="footer">
             <!-- ¡Un pie de página con los datos de la persona que desarrolló el sitio web! -->
+            <div class="footer-content">
+                <section class="social-media">
+                    <a href="https://github.com/AlexanderFRT">
+                        <img alt="GitHub" src="https://img.shields.io/badge/GitHub-Profile-blue?style=flat-square&logo=github">
+                    </a>
+                </section>
+                <p>&copy; 2024 AlexanderFRT. All rights reserved.</p>
+            </div>
         </footer>
         
         <script src="app.js"></script>

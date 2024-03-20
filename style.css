@@ -37,7 +37,7 @@ h1 {
   margin: 0 0 20px 0;
 }
 
-.container {
+.main-container {
   display: inline-block;
   vertical-align: top;
   width: 65%;
@@ -49,7 +49,7 @@ textarea {
   vertical-align: top;
   width: 75%;
   margin: 0 0 0 20%;
-  height: 55vh;
+  height: 50vh;
   border: none;
   outline: none;
   resize: none;
@@ -135,7 +135,7 @@ textarea::placeholder {
   vertical-align: top;
   width: 20%;
   margin: 0 10% 0 0;
-  height: 55vh;
+  height: 50vh;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   padding: 10px;
@@ -144,7 +144,37 @@ textarea::placeholder {
 }
 
 .output-text {
-  height: 50vh;
+  height: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.output-beemo{
+  width: 100%;
+  height: auto;
+}
+
+.output-text-1{
+  font-size: 30px;
+  font-weight: bolder;
+  color: inherit;
+  animation: changeTextShadowColor 91440ms steps(1, end) infinite;
+}
+
+.output-text-2{
+  font-size: 20px;
+  font-weight: bold;
+  color: inherit;
+  margin-top: 2%;
+}
+
+.output-text-3{
+  font-size: 30px;
+  font-weight: bolder;
+  color: inherit;
+  animation: changeTextShadowColor 91440ms steps(1, end) infinite;
 }
 
 button {
@@ -174,6 +204,53 @@ button:active {
   transition: 0.1s ease;
 }
 
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5% 0;
+  text-align: center;
+  color: inherit;
+  font-size: 22px;
+  font-weight: bold;
+  animation: changeBackgroundColor 91440ms steps(1, end) infinite;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 2%;
+  animation: changeTextShadowColor 91440ms steps(1, end) infinite;
+}
+
+.social-media a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.social-media a img {
+  transition: transform 0.5s ease; /* Adjust transition duration */
+}
+
+.social-media a:hover img {
+  transform: scale(1.1); /* Increase badge size on hover */
+}
+
+.social-media a:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: currentColor; /* Match text color */
+  transition: width 0.5s ease; /* Adjust animation duration */
+}
+
+.social-media a:hover:after {
+  width: 100%;
+}
+
 @keyframes changeFontColor {
   /* Day and Afternoon */
   0%, 33.057%, 99.928%{ color: black; }
@@ -189,4 +266,9 @@ button:active {
 @keyframes changeImgColor {
   0%, 33.057%, 99.928% { filter: invert(100%) brightness(0); } /* Bright black */
   16.393%, 66.451% { filter: invert(0%) brightness(10000%); } /* Bright white */
+}
+
+@keyframes changeTextShadowColor {
+  0%, 33.057%, 99.928% { text-shadow: 1px 1px 2px rgb(35, 35, 245); }
+  16.393%, 66.451% { text-shadow: 1px 1px 2px rgb(0, 0, 0); }
 }
