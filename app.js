@@ -109,12 +109,29 @@ function decryptText() {
     cleanTextArea();
 }
 
+function showBubbleText() {
+    const bubbleText = document.getElementById('bubble-text');
+    bubbleText.style.display = 'block'; // Muestra la burbuja de texto
+
+    // Esconde la burbuja de texto luego de un retraso
+    setTimeout(function() {
+        bubbleText.style.display = 'none';
+    }, 4000); // 4000 milisegundos = 4 segundos
+}
+
 // Función para copiar el texto
 function copyText() {
     // Seleccionar el texto dentro del elemento userText
     const textToCopy = userText.textContent;
-    // Intentar copiar el texto al portapapeles
+    // Intenta copiar el texto al portapapeles
     navigator.clipboard.writeText(textToCopy)
+    .then(function() {
+        // Si el proceso es exitoso, muestra una burbuja de texto
+        showBubbleText();
+    })
+    // Adicionalmente transfiere el valor directamente a la caja del textArea
+    const inputText = document.querySelector('#input-text');
+    inputText.value = textToCopy;
 }
 
 // Función para ocultar elementos no deseados y mostrar el botón de copiar
@@ -138,7 +155,7 @@ function cleanTextArea() {
     setTimeout(() => {
         inputText.value = ''; // Limpia el valor de entrada después de que la animación de desvanecimiento se complete
         inputText.classList.remove('fade-out'); // Elimina la clase de desvanecimiento después de que la animación de desvanecimiento se complete
-    }, 1500);
+    }, 1000);
 }
 
 let clickCount = 0;
@@ -147,27 +164,29 @@ let clickCount = 0;
 function isTextAreaEmpty() {
     const inputText = document.getElementById('input-text');
 
-    // Incrementa el contador de clicks cada vez que se llama a la función
-    clickCount++;
-
-    // Verifica si el área de texto de entrada está vacía y el contador de clicks ha alcanzado 2
-    if (inputText.value.trim() === '' && clickCount === 2) {
-        // Realiza acciones para un área de texto vacía después de dos clicks
-        document.querySelector('.user-input').textContent = '';
-        document.querySelector('.output-beemo').style.display = 'block';
-        document.querySelector('.output-text-3').style.display = 'block';   
-        document.querySelector('.output-text-1').style.display = 'none';
-        document.querySelector('.output-text-2').style.display = 'none';
-
-        // Reinicia el contador de clicks.
-        clickCount = 0;
-
-        // Retorna true si el área de texto está vacía después de dos clicks
-        return true;
-    }
-
-    // Retorna true si el área de texto está vacía, incluso si el contador de clicks no ha llegado a dos clicks
+    // Verifica si el área de texto de entrada está vacía
     if (inputText.value.trim() === '') {
+        // Incrementa el contador de clicks solo si el área de texto está vacía
+        clickCount++;
+
+        // Verifica si el contador de clicks ha alcanzado 2
+        if (clickCount === 2) {
+            // Realiza acciones para un área de texto vacía después de dos clicks
+            document.querySelector('.user-input').textContent = '';
+            document.querySelector('.output-beemo').style.display = 'block';
+            document.querySelector('.output-text-3').style.display = 'block';   
+            document.querySelector('.output-text-1').style.display = 'none';
+            document.querySelector('.output-text-2').style.display = 'none';
+            document.querySelector('#copy-button').style.display = 'none';
+            
+            // Reinicia el contador de clicks.
+            clickCount = 0;
+
+            // Retorna true si el área de texto está vacía después de dos clicks
+            return true;
+        }
+        
+        // Retorna true si el área de texto está vacía, incluso si el contador de clicks no ha llegado a dos clicks
         return true;
     }
 

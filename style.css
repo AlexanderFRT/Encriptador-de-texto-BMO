@@ -58,7 +58,7 @@ textarea {
   padding: 10px;
   color: inherit;
   background-color: rgba(255, 255, 255, 0.2);
-  transition: background-color 0.5s ease, opacity 1.5s ease; /* Smooth transition for background color and opacity */
+  transition: background-color 0.5s ease, opacity 1s ease; /* Smooth transition for background color and opacity */
   animation: changeBackgroundColor 91440ms steps(1, end) infinite;
 }
 
@@ -312,6 +312,30 @@ button:active {
   display: none;
 }
 
+#bubble-text {
+  display: none;
+  position: fixed;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  top: 69%;
+  bottom: 15%;
+  left: 75.8%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  animation: fadeOut 4s ease-in-out;
+}
+
+#bubble-text img {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 5px auto 0;
+}
+
 /* El porcentaje total es de 100.005% que es el % más cercano divisible entre 7 paneles = 0% + 16.403% + 16.666% + 16.666% + 16.666% + 16.666% + 0.272% */
 /* De esta forma se evita la desincronización lo máximo posible */
 @keyframes changeFontColor {
@@ -332,4 +356,9 @@ button:active {
 @keyframes changeTextShadowColor {
   0%, 33.053%, 99.717% { text-shadow: 1px 1px 2px rgb(35, 35, 245); }
   16.403%, 66.385% { text-shadow: 1px 1px 2px rgb(0, 0, 0); }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
