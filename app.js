@@ -26,11 +26,23 @@ copyMessage.addEventListener('click', copyText);
 function encryptText() {
     // Obtiene el texto ingresado y elimina los espacios en blanco al principio y al final
     let inputText = userInput.value.trim();
-    let encryptedText = '';
 
-    // Itera sobre cada carácter del texto ingresado
+    // Verifica si el área de texto de entrada está vacía
+    if (isTextAreaEmpty()) {
+        // Si no hay texto, muestra un nuevo mensaje y la imagen original
+        return;
+    }
+
+    // Verifica si la entrada es válida
+    if (!isValidInput(inputText)) {
+        // Muestra el modal para entrada inválida
+        showModal();
+        return;
+    }
+
+    // Si el texto es válido, procede con la encriptación
+    let encryptedText = '';
     for (let char of inputText) {
-        // Si el carácter está en el mapa de vocales, lo reemplaza; de lo contrario, lo deja igual
         encryptedText += vowelMap.has(char) ? vowelMap.get(char) : char;
     }
 
@@ -46,8 +58,23 @@ function encryptText() {
 
 // Función para desencriptar el texto ingresado por el usuario
 function decryptText() {
-    // Obtiene el texto encriptado desde el campo de entrada y elimina los espacios en blanco al principio y al final
     let encryptedText = userInput.value.trim();
+
+    if (isTextAreaEmpty()) {
+        return;
+    }
+
+    if (!encryptedText) {
+        document.querySelector('.output-beemo').style.display = 'block';
+        document.querySelector('.output-text-3').style.display = 'block';  
+        return;
+    }
+
+    if (!isValidInput(encryptedText)) {
+        showModal();
+        return;
+    }
+
     let decryptedText = '';
     let decrypted = false; // Bandera para indicar si se realizó alguna desencriptación durante el proceso
 
@@ -96,6 +123,7 @@ function hideElementsAndDisplayCopyButton() {
     document.querySelector('.output-beemo').style.display = 'none';
     document.querySelector('.output-text-1').style.display = 'none';
     document.querySelector('.output-text-2').style.display = 'none';
+    document.querySelector('.output-text-3').style.display = 'none';
     document.querySelector('#copy-button').style.display = 'block';
 }
 
@@ -113,6 +141,74 @@ function cleanTextArea() {
     }, 1500);
 }
 
-/*
-Debe funcionar solo con letras minúsculas
-No deben ser utilizadas letras con acentos ni caracteres especiales */
+let clickCount = 0;
+
+// Función para verificar si el área de texto está vacía
+function isTextAreaEmpty() {
+    const inputText = document.getElementById('input-text');
+
+    // Incrementa el contador de clicks cada vez que se llama a la función
+    clickCount++;
+
+    // Verifica si el área de texto de entrada está vacía y el contador de clicks ha alcanzado 2
+    if (inputText.value.trim() === '' && clickCount === 2) {
+        // Realiza acciones para un área de texto vacía después de dos clicks
+        document.querySelector('.user-input').textContent = '';
+        document.querySelector('.output-beemo').style.display = 'block';
+        document.querySelector('.output-text-3').style.display = 'block';   
+        document.querySelector('.output-text-1').style.display = 'none';
+        document.querySelector('.output-text-2').style.display = 'none';
+
+        // Reinicia el contador de clicks.
+        clickCount = 0;
+
+        // Retorna true si el área de texto está vacía después de dos clicks
+        return true;
+    }
+
+    // Retorna true si el área de texto está vacía, incluso si el contador de clicks no ha llegado a dos clicks
+    if (inputText.value.trim() === '') {
+        return true;
+    }
+
+    // Retorna false si el área de texto no está vacía
+    return false;
+}
+
+// Función auxiliar para validar la entrada
+function isValidInput(text) {
+    // Verifica si el texto contiene caracteres con acentos
+    let contieneAcentos = /[áéíóúÁÉÍÓÚ]/.test(text);
+    // Verifica si el texto contiene caracteres inválidos
+    let contieneCaracteresInvalidos = /[A-Z!@#$%^&*()_+]/.test(text);
+
+    // Retorna 'true' si el texto no contiene acentos ni caracteres inválidos, de lo contrario retorna 'false'
+    return !contieneAcentos && !contieneCaracteresInvalidos;
+}
+
+// Función para mostrar el modal
+function showModal() {
+    // Obtiene una referencia al elemento modal por su ID
+    const modal = document.getElementById('myModal');
+    // Cambia el estilo de visualización del modal para hacerlo visible
+    modal.style.display = 'block';
+}
+
+// Función para ocultar el modal
+function hideModal() {
+    // Obtiene una referencia al elemento modal por su ID
+    const modal = document.getElementById('myModal');
+    // Cambia el estilo de visualización del modal para ocultarlo
+    modal.style.display = 'none';
+}
+
+// Agrega un event listener para detectar clics en cualquier parte de la ventana
+window.addEventListener('click', function(event) {
+    // Obtiene una referencia al elemento modal por su ID
+    const modal = document.getElementById('myModal');
+    // Verifica si el elemento clickeado es el modal mismo
+    if (event.target == modal) {
+        // Si es así, oculta el modal llamando a la función hideModal
+        hideModal();
+    }
+});
