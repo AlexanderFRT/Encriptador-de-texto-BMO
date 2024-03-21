@@ -37,3 +37,14 @@ Elementos principales de la página:
 ### Extra
 
 ¡Un pie de página con los datos de la persona que desarrolló el sitio web!
+
+## Agradecimientos
+
+Quiero expresar mi sincero agradecimiento a los siguientes autores cuyas imágenes fueron utilizadas en este proyecto:
+
+- [Bratzoid](https://www.deviantart.com/bratzoid/art/Stardew-Valley-Dynamic-Wallpaper-1021978002) por el GIF que le dio vida al fondo de pantalla dinámico de este proyecto.
+- [entangle](https://www.deviantart.com/entangle/art/Beemo-274157687) por la imagen de Beemo.
+
+Sus trabajos son parte integral de este proyecto y son muy apreciados.
+
+¡Gracias por su increíble contribución!

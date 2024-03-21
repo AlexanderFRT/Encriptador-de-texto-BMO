@@ -1,4 +1,4 @@
-/* Global Style */
+/* Estilo Global */
 body {
   font-family: "Fredoka", sans-serif;
   transition: color 0.5s ease;
@@ -22,11 +22,11 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0 0 0;
+  padding: 20px 0 20px 0;
 }
 
 .logo {
-  width: 6.5%;
+  width: 4%;
   height: auto;
   margin: 0 20px 20px 0;
 }
@@ -58,8 +58,12 @@ textarea {
   padding: 10px;
   color: inherit;
   background-color: rgba(255, 255, 255, 0.2);
-  transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease, opacity 1.5s ease; /* Smooth transition for background color and opacity */
   animation: changeBackgroundColor 91440ms steps(1, end) infinite;
+}
+
+.fade-out {
+  opacity: 0; /* Set opacity to 0 for fade-out effect */
 }
 
 textarea::placeholder {
@@ -134,8 +138,10 @@ textarea::placeholder {
   display: inline-block;
   vertical-align: top;
   width: 20%;
-  margin: 0 10% 0 0;
   height: 50vh;
+  max-width: 20%;
+  max-height: 50vh;
+  margin: 0 10% 0 0;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   padding: 10px;
@@ -175,6 +181,21 @@ textarea::placeholder {
   font-weight: bolder;
   color: inherit;
   animation: changeTextShadowColor 91440ms steps(1, end) infinite;
+}
+
+.user-input{
+  max-height: calc(50vh - 60px);
+  max-width: 100%;
+  line-height: 1.5;
+  overflow-y: auto;
+  word-wrap: break-word;
+  font-size: 30px;
+  font-weight: bolder;
+  color: inherit;
+}
+
+.user-input::-webkit-scrollbar {
+  display: none;
 }
 
 button {
@@ -231,11 +252,11 @@ button:active {
 }
 
 .social-media a img {
-  transition: transform 0.5s ease; /* Adjust transition duration */
+  transition: transform 0.5s ease;
 }
 
 .social-media a:hover img {
-  transform: scale(1.1); /* Increase badge size on hover */
+  transform: scale(1.1);
 }
 
 .social-media a:after {
@@ -243,32 +264,32 @@ button:active {
   display: block;
   width: 0;
   height: 2px;
-  background-color: currentColor; /* Match text color */
-  transition: width 0.5s ease; /* Adjust animation duration */
+  background-color: currentColor;
+  transition: width 0.5s ease;
 }
 
 .social-media a:hover:after {
   width: 100%;
 }
 
+/* El porcentaje total es de 100.005% que es el % más cercano divisible entre 7 paneles = 0% + 16.403% + 16.666% + 16.666% + 16.666% + 16.666% + 0.272% */
+/* De esta forma se evita la desincronización lo máximo posible */
 @keyframes changeFontColor {
-  /* Day and Afternoon */
-  0%, 33.057%, 99.928%{ color: black; }
-  /* Rain and Night */
-  16.393%, 66.451%{ color: white; }
+  0%, 33.053%, 99.717%{ color: black; } /* Mañana y tarde */
+  16.403%, 66.385%{ color: white; } /* Lluvia y noche */
 }
 
 @keyframes changeBackgroundColor {
-  0%, 33.057%, 99.928% { background-color: rgba(255, 255, 255, 0.2); }
-  16.393%, 66.451% { background-color: rgba(0, 0, 0, 0.2); }
+  0%, 33.053%, 99.717% { background-color: rgba(255, 255, 255, 0.2); }
+  16.403%, 66.385% { background-color: rgba(0, 0, 0, 0.2); }
 }
 
 @keyframes changeImgColor {
-  0%, 33.057%, 99.928% { filter: invert(100%) brightness(0); } /* Bright black */
-  16.393%, 66.451% { filter: invert(0%) brightness(10000%); } /* Bright white */
+  0%, 33.053%, 99.717% { filter: invert(100%) brightness(0); } /* Color negro billante */
+  16.403%, 66.385% { filter: invert(0%) brightness(10000%); } /* Color blanco brillante */
 }
 
 @keyframes changeTextShadowColor {
-  0%, 33.057%, 99.928% { text-shadow: 1px 1px 2px rgb(35, 35, 245); }
-  16.393%, 66.451% { text-shadow: 1px 1px 2px rgb(0, 0, 0); }
+  0%, 33.053%, 99.717% { text-shadow: 1px 1px 2px rgb(35, 35, 245); }
+  16.403%, 66.385% { text-shadow: 1px 1px 2px rgb(0, 0, 0); }
 }
