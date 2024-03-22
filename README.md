@@ -2,7 +2,8 @@
 
 ## Descripción:
 
-Este proyecto es la realización del primer challenge ONE con un diseño inspirado en BMO de Adventure Time.
+Este proyecto es la realización del primer challenge ONE con un diseño inspirado en BMO de Adventure Time.  
+#challengeonecodificador6
 
 ## Desencripta nuestro mensaje secreto!
 
