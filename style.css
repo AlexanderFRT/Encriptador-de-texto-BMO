@@ -16,25 +16,26 @@ body {
   z-index: -1;
   background-image: url('gif/stardew_valley_dynamic_wallpaper_by_bratzoid_slowed.gif');
   background-size: cover;
+  background-position: contain;
 }
 
 header{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0 20px 0;
+  padding: 1% 0 0 0;
+  margin-bottom: 2%; 
 }
 
 .logo {
   width: 4%;
   height: auto;
-  margin: 0 20px 20px 0;
+  margin: 0 1% 0 0;
 }
 
 h1 {
   font-weight: bold;
   font-size: 60px;
-  margin: 0 0 20px 0;
 }
 
 .main-container {
@@ -54,16 +55,16 @@ textarea {
   outline: none;
   resize: none;
   font-size: 30px;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 2%;
+  padding: 0.8%;
   color: inherit;
   background-color: rgba(255, 255, 255, 0.2);
-  transition: background-color 0.5s ease, opacity 1s ease; /* Smooth transition for background color and opacity */
+  transition: background-color 0.5s ease, opacity 1s ease;
   animation: changeBackgroundColor 91440ms steps(1, end) infinite;
 }
 
 .fade-out {
-  opacity: 0; /* Set opacity to 0 for fade-out effect */
+  opacity: 0;
 }
 
 textarea::placeholder {
@@ -79,8 +80,8 @@ textarea::placeholder {
 }
 
 .instructions img {
-  margin-right: 5px;
-  width: 15px;
+  margin-right: 0.5%;
+  width: 1.5%;
   height: auto;
   animation: changeImgColor 91440ms steps(1, end) infinite;
 }
@@ -97,7 +98,7 @@ textarea::placeholder {
   font-size: 20px;
   height: 7vh;
   width: calc(65% - 3%);
-  border-radius: 15px;
+  border-radius: 1.5vh;
 }
 
 #encrypt-button{
@@ -143,14 +144,14 @@ textarea::placeholder {
   max-height: 50vh;
   margin: 0 10% 0 0;
   background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 2%;
+  padding: 0.5%;
   text-align: center;
   animation: changeBackgroundColor 91440ms steps(1, end) infinite;
 }
 
 .output-text {
-  height: calc(100% - 50px);
+  height: calc(100% - 6vh);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -184,7 +185,7 @@ textarea::placeholder {
 }
 
 .user-input{
-  max-height: calc(50vh - 60px);
+  max-height: calc(50vh - 9vh);
   max-width: 100%;
   line-height: 1.5;
   overflow-y: auto;
@@ -204,7 +205,7 @@ button {
   background-color: #35ff3cde;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 1vh;
   cursor: pointer;
   transition: 1s ease;
   color: #000000;
@@ -296,6 +297,7 @@ button:active {
 
 .alert-image {
   width: 15%;
+  margin-bottom: 0.5vh;
   height: auto;
 }
 
@@ -319,10 +321,10 @@ button:active {
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   font-size: 16px;
-  padding: 10px 20px;
-  border-radius: 20px;
+  padding: 1vh 2vh;
+  border-radius: 2vh;
   top: 69%;
-  bottom: 15%;
+  bottom: 16.5%;
   left: 75.8%;
   transform: translateX(-50%);
   z-index: 9999;
@@ -333,7 +335,7 @@ button:active {
   width: 100px;
   height: auto;
   display: block;
-  margin: 5px auto 0;
+  margin: 3% auto 0;
 }
 
 /* El porcentaje total es de 100.005% que es el % más cercano divisible entre 7 paneles = 0% + 16.403% + 16.666% + 16.666% + 16.666% + 16.666% + 0.272% */
@@ -361,4 +363,266 @@ button:active {
 @keyframes fadeOut {
   0% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+@media only screen and (max-width: 1023px){
+
+  .background{
+    background-position: center;
+  }
+
+  .logo{
+    width: 6%;
+  }
+  
+  h1 {
+    font-size: 50px;
+  }
+
+  textarea{
+    font-size: 25px;
+  }
+
+  .instructions img {
+    width: 3%;
+  }
+
+  .buttons button {
+    font-size: 17.5px;
+  }
+
+  .output-beemo{
+    width: 125%;
+  }
+
+  .output-text-3{
+    font-size: 25px;
+  }
+
+  .user-input{
+    font-size: 25px;
+  }
+
+  button {
+    font-size: 17.5px;
+  }
+
+  .alert-image {
+    width: 27.5%;
+  }
+
+  .modal-message {
+    font-size: 25px;
+    margin: 0 0 45% 0;
+  }
+
+  #bubble-text {
+    top: 64.5%;
+    bottom: 19%;
+  }
+
+  #bubble-text img {
+    width: 100px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .background{
+    background-position: center;
+  }
+
+  .logo{
+    width: 8%;
+  }
+  
+  h1 {
+    font-size: 30px;
+  }
+
+  textarea{
+    font-size: 22px;
+  }
+
+  .instructions {
+    font-size: 15px;
+  }
+
+  .instructions img {
+    width: 3.5%;
+  }
+
+  .buttons button {
+    font-size: 15px;
+    height: 6vh;
+  }
+
+  .output-beemo{
+    width: 150%;
+  }
+
+  .output-text-1{
+    font-size: 22.5px;
+  }
+  
+  .output-text-2{
+    font-size: 17.5px;
+    font-weight: bold;
+    color: inherit;
+    margin-top: 2%;
+  }
+
+  .output-text-3{
+    font-size: 25px;
+  }
+
+  .user-input{
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 15px;
+  }
+
+  .footer {
+    font-size: 18px;
+  }
+
+  .alert-image {
+    width: 30%;
+  }
+
+  .modal-message {
+    font-size: 25px;
+    margin: 0 0 60% 0;
+  }
+
+  #bubble-text {
+    top: 64.5%;
+    bottom: 19%;
+  }
+
+  #bubble-text img {
+    width: 100px;
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+  .background{
+    background-position: center;
+  }
+
+  .logo{
+    width: 10%;
+  }
+  
+  h1 {
+    font-size: 22.5px;
+  }
+
+  .main-container {
+    display: fixed;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  textarea {
+    width: 80%;
+    max-width: 100%;
+    height: 30vh;
+    margin: 1vh 0 0 4vh;
+    font-size: 20px;
+  }
+
+  .instructions {
+    width: 80%;
+    margin: 1vh 0 0 4vh;
+    font-size: 15px;
+  }
+
+  .instructions img {
+    width: 5%;
+    margin-right: 0.5vh;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 1vh 0 0 0;
+    gap: 0%;
+  }
+
+  .buttons button {
+    width: 45%;
+    font-size: 15px;
+    height: 5vh;
+  }
+
+  .output-box {
+    width: 80%;
+    max-width: 100%;
+    height: 25vh;
+    margin: 1vh 0 0 4vh;/
+  }
+
+  .output-beemo{
+    width: 50%;
+  }
+
+  .output-text-1{
+    font-size: 22.5px;
+  }
+  
+  .output-text-2{
+    font-size: 17.5px;
+    font-weight: bold;
+    color: inherit;
+    margin-top: 2%;
+  }
+
+  .output-text-3{
+    font-size: 25px;
+  }
+
+  .user-input{
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 15px;
+  }
+
+  .footer-content {
+    gap: 0%;
+  }
+
+  .footer p{
+    font-size: 18px;
+  }
+
+  .alert-image {
+    width: 35%;
+    margin-bottom: 0.5vh;
+    height: auto;
+  }
+
+  .modal-message {
+    font-size: 20px;
+    margin: 0 0 225% 0;
+    width: 100%;
+  }
+
+  #bubble-text {
+    top: 76%;
+    bottom: 6.5%;
+    left: 50%;
+  }
+
+  #bubble-text img {
+    width: 90px;
+  }
+
 }

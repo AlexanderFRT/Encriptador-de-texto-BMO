@@ -1,3 +1,13 @@
+// Función para establecer la URL de la imagen de fondo cuando se carga la página
+window.onload = function() {
+    // Selecciona el elemento HTML con el ID "background"
+    var background = document.getElementById("background");
+    // Define la URL de la imagen de fondo
+    var imageUrl = "gif/stardew_valley_dynamic_wallpaper_by_bratzoid_slowed.gif";
+    // Establece la URL de la imagen de fondo en el elemento seleccionado
+    background.style.backgroundImage = "url('" + imageUrl + "')";
+}
+
 // Usamos un mapa para definir tantas variables como sea necesario, ya que tiene un tiempo de respuesta mejor y la variable const, en lugar de let, ya que estos valores son inmutables.
 const vowelMap = new Map([
     ['e', 'enter'],
@@ -199,7 +209,7 @@ function isValidInput(text) {
     // Verifica si el texto contiene caracteres con acentos
     let contieneAcentos = /[áéíóúÁÉÍÓÚ]/.test(text);
     // Verifica si el texto contiene caracteres inválidos
-    let contieneCaracteresInvalidos = /[A-Z!@#$%^&*()_+]/.test(text);
+    let contieneCaracteresInvalidos = /[A-Z0-9!@#$%^&*()_+]/.test(text);
 
     // Retorna 'true' si el texto no contiene acentos ni caracteres inválidos, de lo contrario retorna 'false'
     return !contieneAcentos && !contieneCaracteresInvalidos;
