@@ -7,7 +7,7 @@ Este proyecto es la realización del primer challenge ONE con un diseño inspira
 
 ## Desencripta nuestro mensaje secreto!
 
-fenterlimescimesdaidenters poberr enternfrenterntair enterstenter dentersaifimesober y haibenterrlober cobernclufatimesdober cobern enterximestober!
+fenterlimescimesdaidenters poberr enternfrenterntair enterstenter dentersaifimesober y haibenterrlober cobernclufatimesdober cobern enterximestober
 
 ## Especificaciones:
 
