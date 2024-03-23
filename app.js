@@ -18,7 +18,7 @@ window.onload = function() {
         background.style.backgroundImage = "none"; // Eliminar la imagen de fondo actual
         setTimeout(function() {
             background.style.backgroundImage = "url('" + imageUrl + "')"; // Establecer de nuevo la imagen de fondo
-        }, 50); // Agregar un pequeño retraso para asegurar que la imagen se elimine correctamente antes de volver a cargarla
+        }, 100); // Agregar un pequeño retraso para asegurar que la imagen se elimine correctamente antes de volver a cargarla
     };
 
     // Llamar a la función reloadImage al cargar la página
