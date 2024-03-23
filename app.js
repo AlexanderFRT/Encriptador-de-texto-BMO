@@ -1,11 +1,22 @@
-// Función para establecer la URL de la imagen de fondo cuando se carga la página
+// Función para establecer la URL de la imagen de fondo y recargarla desde el principio cuando se carga la página
 window.onload = function() {
-    // Selecciona el elemento HTML con el ID "background"
+    // Seleccionar el elemento HTML con el ID "background"
     var background = document.getElementById("background");
-    // Define la URL de la imagen de fondo
+    // Definir la URL de la imagen de fondo
     var imageUrl = "gif/stardew_valley_dynamic_wallpaper_by_bratzoid_slowed.gif";
-    // Establece la URL de la imagen de fondo en el elemento seleccionado
+    // Establecer la URL de la imagen de fondo en el elemento seleccionado
     background.style.backgroundImage = "url('" + imageUrl + "')";
+
+    // Función para recargar la imagen de fondo desde el principio al recargar la página
+    var reloadImage = function() {
+        background.style.backgroundImage = "none"; // Eliminar la imagen de fondo actual
+        setTimeout(function() {
+            background.style.backgroundImage = "url('" + imageUrl + "')"; // Establecer de nuevo la imagen de fondo
+        }, 100); // Agregar un pequeño retraso para asegurar que la imagen se elimine correctamente antes de volver a cargarla
+    };
+
+    // Llamar a la función reloadImage al cargar la página
+    reloadImage();
 }
 
 // Usamos un mapa para definir tantas variables como sea necesario, ya que tiene un tiempo de respuesta mejor y la variable const, en lugar de let, ya que estos valores son inmutables.
@@ -207,12 +218,12 @@ function isTextAreaEmpty() {
 // Función auxiliar para validar la entrada
 function isValidInput(text) {
     // Verifica si el texto contiene caracteres con acentos
-    let contieneAcentos = /[áéíóúÁÉÍÓÚ]/.test(text);
+    let containsAccents = /[áéíóúÁÉÍÓÚ]/.test(text);
     // Verifica si el texto contiene caracteres inválidos
-    let contieneCaracteresInvalidos = /[A-Z0-9!@#$%^&*()_+]/.test(text);
+    let containsInvalidCharacters = /[A-Z0-9!@#$%^&*()_+]/.test(text);
 
     // Retorna 'true' si el texto no contiene acentos ni caracteres inválidos, de lo contrario retorna 'false'
-    return !contieneAcentos && !contieneCaracteresInvalidos;
+    return !containsAccents && !containsInvalidCharacters;
 }
 
 // Función para mostrar el modal
