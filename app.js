@@ -18,7 +18,7 @@ window.onload = function() {
         background.style.backgroundImage = "none"; // Eliminar la imagen de fondo actual
         setTimeout(function() {
             background.style.backgroundImage = "url('" + imageUrl + "')"; // Establecer de nuevo la imagen de fondo
-        }, 100); // Agregar un pequeño retraso para asegurar que la imagen se elimine correctamente antes de volver a cargarla
+        }, 50); // Agregar un pequeño retraso para asegurar que la imagen se elimine correctamente antes de volver a cargarla
     };
 
     // Llamar a la función reloadImage al cargar la página
@@ -145,6 +145,14 @@ function showBubbleText() {
         bubbleText.style.display = 'none';
     }, 4000); // 4000 milisegundos = 4 segundos
 }
+
+// Escucha el evento para el botón de copiar
+document.getElementById("copy-button").addEventListener("click", function(event) {
+    event.preventDefault(); // Evita el comportamiento predeterminado al copiar en dispositivos móviles (mostrar mensaje del sistema)
+    
+    // Llama a la función de copiado existente
+    copyText();
+});
 
 // Función para copiar el texto
 function copyText() {
