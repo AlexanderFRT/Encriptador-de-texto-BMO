@@ -18,9 +18,16 @@
     <body>
         <div class="background" id="background"></div>
         <header>
-            <img src="images/BMO.png" alt="Beemo" class="logo">
-            <!-- Título del sitio web -->
-            <h1>BMO, el Maestro del Cifrado</h1>
+            <div class="beemoSpeaks">
+                <div class="beemoMessage" id="initial-message" style="display: none;">¡Hola, aventurero! ¿Qué mensaje secreto quieres cifrar hoy?</div>
+                <div class="beemoMessage" id="encrypted-message" style="display: none;">¡Perfecto! Aquí tienes tu mensaje cifrado.</div>
+                <div class="beemoMessage" id="decrypted-message" style="display: none;">¡Listo! Aquí tienes tu mensaje descifrado.</div>
+            </div>
+            <div class="header-container">
+                <img src="images/BMO.png" alt="Beemo" class="logo">
+                <!-- Título del sitio web -->
+                <h1>BMO, el Maestro del Cifrado</h1>
+            </div>
         </header>
 
         <main>

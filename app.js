@@ -148,21 +148,31 @@ function showBubbleText() {
 }
 
 // Escucha el evento para el botón de copiar
-document.getElementById("copy-button").addEventListener("click", function(event) {
-    // Transfiere el valor al textarea
-    const inputText = document.querySelector('#input-text');
-    const textToCopy = userText.textContent;
-    inputText.value = textToCopy;
+function copyText (){
+    // Verifica el ancho del dispositivo
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        // Para pantallas más pequeñas (max-width: 768px)
 
-    // Muestra la burbuja de texto
-    showBubbleText();
+        // Transfiere el valor al textarea
+        const inputText = document.querySelector('#input-text');
+        const textToCopy = userText.textContent;
+        inputText.value = textToCopy;
 
-    // Intenta copiar el texto al portapapeles
-    navigator.clipboard.writeText(textToCopy);
+        // Muestra el texto de burbuja
+        showBubbleText();
+    } else {
+        // Para pantallas más grandes (min-width: 769px)
+        const inputText = document.querySelector('#input-text');
+        const textToCopy = userText.textContent;
+        inputText.value = textToCopy;
 
-    // Evita el comportamiento predeterminado al copiar en dispositivos móviles (mostrar mensaje del sistema)
-    event.preventDefault();
-});
+        // Muestra el texto de burbuja
+        showBubbleText();
+
+        // Intenta copiar el texto al portapapeles
+        navigator.clipboard.writeText(textToCopy);
+    }
+}
 
 // Función para ocultar elementos no deseados y mostrar el botón de copiar
 function hideElementsAndDisplayCopyButton() {
