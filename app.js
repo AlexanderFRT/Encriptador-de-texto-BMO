@@ -1,29 +1,30 @@
-// Función para establecer la URL de la imagen de fondo y recargarla desde el principio cuando se carga la página
-window.onload = function() {
+// Bandera para rastrear la carga inicial
+var initialLoad = true;
+
+// Función para recargar la imagen de fondo desde el principio
+var reloadImage = function() {
     // Seleccionar el elemento HTML con el ID "background"
     var background = document.getElementById("background");
     // Definir la URL de la imagen de fondo
     var imageUrl = "gif/stardew_valley_dynamic_wallpaper_by_bratzoid_slowed.gif";
 
-    // Pre-carga la imagen de fondo
-    var image = new Image();
-    image.onload = function() {
-        // Una vez que la imagen se carga correctamente, establecerla como imagen de fondo
+    // Eliminar la imagen de fondo actual
+    background.style.backgroundImage = "none";
+
+    // Agregar un pequeño retraso antes de volver a cargar la imagen
+    setTimeout(function() {
+        // Establecer de nuevo la imagen de fondo
         background.style.backgroundImage = "url('" + imageUrl + "')";
-    };
-    image.src = imageUrl;
+    }, 150); // Ajustar el tiempo de retraso según sea necesario
+};
 
-    // Función para recargar la imagen de fondo desde el principio al recargar la página
-    var reloadImage = function() {
-        background.style.backgroundImage = "none"; // Eliminar la imagen de fondo actual
-        setTimeout(function() {
-            background.style.backgroundImage = "url('" + imageUrl + "')"; // Establecer de nuevo la imagen de fondo
-        }, 100); // Agregar un pequeño retraso para asegurar que la imagen se elimine correctamente antes de volver a cargarla
-    };
-
-    // Llamar a la función reloadImage al cargar la página
-    reloadImage();
-}
+// Ejecutar la función reloadImage solo después de la carga inicial
+window.onload = function() {
+    if (initialLoad) {
+        reloadImage();
+        initialLoad = false; // Marcar la carga inicial como completada
+    }
+};
 
 // Usamos un mapa para definir tantas variables como sea necesario, ya que tiene un tiempo de respuesta mejor y la variable const, en lugar de let, ya que estos valores son inmutables.
 const vowelMap = new Map([

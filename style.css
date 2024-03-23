@@ -5,7 +5,6 @@ body {
   animation: changeFontColor 91440ms steps(1, end) infinite;
   height: 100vh;
   overflow: hidden;
-  color-scheme: light;
 }
 
 .background {
@@ -364,12 +363,6 @@ button:active {
 @keyframes fadeOut {
   0% { opacity: 1; }
   100% { opacity: 0; }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    color-scheme: light;
-  }
 }
 
 @media only screen and (max-width: 1023px){
