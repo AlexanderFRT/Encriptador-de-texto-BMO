@@ -4,7 +4,7 @@ body {
   transition: color 0.5s ease;
   animation: changeFontColor 91440ms steps(1, end) infinite;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; 
 }
 
 .background {
@@ -363,6 +363,20 @@ button:active {
 @keyframes fadeOut {
   0% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+@media (prefers-color-scheme: dark) {
+  #decrypt-button {
+    background-color: #fbff00;
+  }
+
+  #encrypt-button {
+    background-color: #51e8ff;
+  }
+
+  button {
+    background-color: #35ff3cde;
+  }
 }
 
 @media only screen and (max-width: 1023px){

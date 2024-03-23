@@ -15,7 +15,7 @@ var reloadImage = function() {
     setTimeout(function() {
         // Establecer de nuevo la imagen de fondo
         background.style.backgroundImage = "url('" + imageUrl + "')";
-    }, 150); // Ajustar el tiempo de retraso según sea necesario
+    }, 200); // Ajustar el tiempo de retraso según sea necesario
 };
 
 // Ejecutar la función reloadImage solo después de la carga inicial
