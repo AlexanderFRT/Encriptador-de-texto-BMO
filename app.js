@@ -157,11 +157,11 @@ document.getElementById("copy-button").addEventListener("click", function(event)
     // Muestra la burbuja de texto
     showBubbleText();
 
-    // Evita el comportamiento predeterminado al copiar en dispositivos móviles (mostrar mensaje del sistema)
-    event.preventDefault();
-
     // Intenta copiar el texto al portapapeles
     navigator.clipboard.writeText(textToCopy);
+
+    // Evita el comportamiento predeterminado al copiar en dispositivos móviles (mostrar mensaje del sistema)
+    event.preventDefault();
 });
 
 // Función para ocultar elementos no deseados y mostrar el botón de copiar
