@@ -18,13 +18,17 @@ var reloadImage = function() {
     }, 100); // Ajustar el tiempo de retraso según sea necesario
 };
 
-// Ejecutar la función reloadImage solo después de la carga inicial
-window.onload = function() {
-    if (initialLoad) {
-        reloadImage();
-        initialLoad = false; // Marcar la carga inicial como completada
-    }
-};
+// Verificar si la recarga ha sido ejecutada en esta sesión
+var reloadExecuted = sessionStorage.getItem('reloadExecuted');
+
+// Si no se ha ejecutado aún y no es la carga inicial, recargar la imagen y marcarla como ejecutada
+if (!reloadExecuted && !initialLoad) {
+    reloadImage();
+    sessionStorage.setItem('reloadExecuted', 'true');
+}
+
+// Establecer la bandera de carga inicial en falso después de la primera carga
+initialLoad = false;
 
 // Usamos un mapa para definir tantas variables como sea necesario, ya que tiene un tiempo de respuesta mejor y la variable const, en lugar de let, ya que estos valores son inmutables.
 const vowelMap = new Map([
