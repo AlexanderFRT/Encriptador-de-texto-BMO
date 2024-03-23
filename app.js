@@ -4,8 +4,14 @@ window.onload = function() {
     var background = document.getElementById("background");
     // Definir la URL de la imagen de fondo
     var imageUrl = "gif/stardew_valley_dynamic_wallpaper_by_bratzoid_slowed.gif";
-    // Establecer la URL de la imagen de fondo en el elemento seleccionado
-    background.style.backgroundImage = "url('" + imageUrl + "')";
+
+    // Pre-carga la imagen de fondo
+    var image = new Image();
+    image.onload = function() {
+        // Una vez que la imagen se carga correctamente, establecerla como imagen de fondo
+        background.style.backgroundImage = "url('" + imageUrl + "')";
+    };
+    image.src = imageUrl;
 
     // Función para recargar la imagen de fondo desde el principio al recargar la página
     var reloadImage = function() {
