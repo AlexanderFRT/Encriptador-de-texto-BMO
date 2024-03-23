@@ -19,6 +19,16 @@ body {
   background-position: contain;
 }
 
+.beemoMessage {
+  display: none;
+  position: absolute;
+  text-align: right;
+  padding-top: 1.5%;
+  left: 20%;
+  right: 70%;
+  font-size: 30px;
+}
+
 .header-container{
   display: flex;
   justify-content: center;
@@ -363,6 +373,22 @@ button:active {
 @keyframes fadeOut {
   0% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+@media only screen and (max-width: 1920px) {
+  .beemoMessage{
+    left: 15%;
+    right: 75%;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 1680px){
+  .beemoMessage {
+    left: 13%;
+    right: 77%;
+    font-size: 20px;
+  }
 }
 
 @media only screen and (max-width: 1023px){

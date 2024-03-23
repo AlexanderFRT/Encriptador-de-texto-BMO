@@ -30,6 +30,59 @@ if (!reloadExecuted && !initialLoad) {
 // Establecer la bandera de carga inicial en falso después de la primera carga
 initialLoad = false;
 
+// Función para mostrar un mensaje letra por letra con indicador de carga
+function displayMessageLetterByLetter(messageId) {
+    if (window.matchMedia("(min-width: 1680px)").matches) {
+        // Obtener todos los elementos de mensaje
+        const messageElements = document.querySelectorAll(".beemoMessage");
+
+        // Ocultar todos los elementos de mensaje que no coinciden con el ID del mensaje actual
+        messageElements.forEach(element => {
+            if (element.id === messageId) {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        });
+
+        // Obtener el elemento que contiene el mensaje a mostrar en base al evento
+        const messageElement = document.getElementById(messageId);
+        // Obtener el mensaje
+        const message = messageElement.textContent;
+        let index = 0;
+
+        // Configurar un intervalo para mostrar el mensaje gradualmente
+        const intervalId = setInterval(() => {
+            // Verificar si no hemos llegado al final del mensaje
+            if (index <= message.length) {
+                // Mostrar una parte del mensaje cada vez
+                messageElement.textContent = message.slice(0, index);
+                index++;
+            } else {
+                // Limpiar el intervalo una vez que se muestra todo el mensaje
+                clearInterval(intervalId);
+            }
+        }, 80); // Ajustar el intervalo según sea necesario
+    }
+}
+
+// Mostrar el mensaje inicial al cargar la página
+window.onload = function() {
+    displayMessageLetterByLetter("initial-message");
+};
+
+// Evento para el botón de encriptar
+document.getElementById("encrypt-button").addEventListener("click", function() {
+    // Mostrar el mensaje encriptado letra por letra al hacer clic en el botón
+    displayMessageLetterByLetter("encrypted-message");
+});
+
+// Evento para el botón de desencriptar
+document.getElementById("decrypt-button").addEventListener("click", function() {
+    // Mostrar el mensaje desencriptado letra por letra al hacer clic en el botón
+    displayMessageLetterByLetter("decrypted-message");
+});
+
 // Usamos un mapa para definir tantas variables como sea necesario, ya que tiene un tiempo de respuesta mejor y la variable const, en lugar de let, ya que estos valores son inmutables.
 const vowelMap = new Map([
     ['e', 'enter'],
