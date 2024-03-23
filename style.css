@@ -226,6 +226,30 @@ button:active {
   transition: 0.1s ease;
 }
 
+#bubble-text {
+  display: none;
+  text-align: center;
+  width: 40%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 22px;
+  border: none;
+  border-radius: 2vh;
+  padding: 2vh 2vh 1vh 2vh;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 4vh auto;
+  animation: fadeOut 4s ease-in-out;
+}
+
+#bubble-text img {
+  display: block;
+  width: 90%;
+  height: auto;
+  margin: 0.3vh auto;
+}
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -314,30 +338,6 @@ button:active {
   display: none;
 }
 
-#bubble-text {
-  display: none;
-  position: fixed;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  font-size: 16px;
-  padding: 1vh 2vh;
-  border-radius: 2vh;
-  top: 69%;
-  bottom: 16.5%;
-  left: 75.8%;
-  transform: translateX(-50%);
-  z-index: 9999;
-  animation: fadeOut 4s ease-in-out;
-}
-
-#bubble-text img {
-  width: 100px;
-  height: auto;
-  display: block;
-  margin: 3% auto 0;
-}
-
 /* El porcentaje total es de 100.005% que es el % más cercano divisible entre 7 paneles = 0% + 16.403% + 16.666% + 16.666% + 16.666% + 16.666% + 0.272% */
 /* De esta forma se evita la desincronización lo máximo posible */
 @keyframes changeFontColor {
@@ -407,6 +407,10 @@ button:active {
     font-size: 17.5px;
   }
 
+  #bubble-text{
+    font-size: 20px;
+  }
+
   .alert-image {
     width: 27.5%;
   }
@@ -414,15 +418,6 @@ button:active {
   .modal-message {
     font-size: 25px;
     margin: 0 0 45% 0;
-  }
-
-  #bubble-text {
-    top: 64.5%;
-    bottom: 19%;
-  }
-
-  #bubble-text img {
-    width: 100px;
   }
 }
 
@@ -484,6 +479,10 @@ button:active {
     font-size: 15px;
   }
 
+  #bubble-text{
+    font-size: 16px;
+  }
+
   .footer {
     font-size: 18px;
   }
@@ -496,16 +495,6 @@ button:active {
     font-size: 25px;
     margin: 0 0 60% 0;
   }
-
-  #bubble-text {
-    top: 64.5%;
-    bottom: 19%;
-  }
-
-  #bubble-text img {
-    width: 100px;
-  }
-
 }
 
 @media only screen and (max-width: 480px) {
@@ -595,6 +584,14 @@ button:active {
     font-size: 15px;
   }
 
+  #bubble-text{
+    font-size: 15px;
+  }
+
+  #bubble-text img {
+    width: 60%;
+  }
+
   .footer-content {
     gap: 0%;
   }
@@ -614,15 +611,4 @@ button:active {
     margin: 0 0 225% 0;
     width: 100%;
   }
-
-  #bubble-text {
-    top: 76%;
-    bottom: 6.5%;
-    left: 50%;
-  }
-
-  #bubble-text img {
-    width: 90px;
-  }
-
 }
