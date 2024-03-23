@@ -15,7 +15,7 @@ var reloadImage = function() {
     setTimeout(function() {
         // Establecer de nuevo la imagen de fondo
         background.style.backgroundImage = "url('" + imageUrl + "')";
-    }, 200); // Ajustar el tiempo de retraso según sea necesario
+    }, 100); // Ajustar el tiempo de retraso según sea necesario
 };
 
 // Ejecutar la función reloadImage solo después de la carga inicial
@@ -149,26 +149,20 @@ function showBubbleText() {
 
 // Escucha el evento para el botón de copiar
 document.getElementById("copy-button").addEventListener("click", function(event) {
-    event.preventDefault(); // Evita el comportamiento predeterminado al copiar en dispositivos móviles (mostrar mensaje del sistema)
-    
-    // Llama a la función de copiado existente
-    copyText();
-});
-
-// Función para copiar el texto
-function copyText() {
-    // Seleccionar el texto dentro del elemento userText
-    const textToCopy = userText.textContent;
-    // Intenta copiar el texto al portapapeles
-    navigator.clipboard.writeText(textToCopy)
-    .then(function() {
-        // Si el proceso es exitoso, muestra una burbuja de texto
-        showBubbleText();
-    })
-    // Adicionalmente transfiere el valor directamente a la caja del textArea
+    // Transfiere el valor al textarea
     const inputText = document.querySelector('#input-text');
+    const textToCopy = userText.textContent;
     inputText.value = textToCopy;
-}
+
+    // Muestra la burbuja de texto
+    showBubbleText();
+
+    // Evita el comportamiento predeterminado al copiar en dispositivos móviles (mostrar mensaje del sistema)
+    event.preventDefault();
+
+    // Intenta copiar el texto al portapapeles
+    navigator.clipboard.writeText(textToCopy);
+});
 
 // Función para ocultar elementos no deseados y mostrar el botón de copiar
 function hideElementsAndDisplayCopyButton() {
