@@ -71,18 +71,6 @@ window.onload = function() {
     displayMessageLetterByLetter("initial-message");
 };
 
-// Evento para el botón de encriptar
-document.getElementById("encrypt-button").addEventListener("click", function() {
-    // Mostrar el mensaje encriptado letra por letra al hacer clic en el botón
-    displayMessageLetterByLetter("encrypted-message");
-});
-
-// Evento para el botón de desencriptar
-document.getElementById("decrypt-button").addEventListener("click", function() {
-    // Mostrar el mensaje desencriptado letra por letra al hacer clic en el botón
-    displayMessageLetterByLetter("decrypted-message");
-});
-
 // Usamos un mapa para definir tantas variables como sea necesario, ya que tiene un tiempo de respuesta mejor y la variable const, en lugar de let, ya que estos valores son inmutables.
 const vowelMap = new Map([
     ['e', 'enter'],
@@ -139,6 +127,9 @@ function encryptText() {
     hideElementsAndDisplayCopyButton();
     // Limpia el área de entrada
     cleanTextArea();
+
+    // Llamar a la función displayMessageLetterByLetter después de que la encriptación se haya completado
+    displayMessageLetterByLetter("encrypted-message");
 }
 
 // Función para desencriptar el texto ingresado por el usuario
@@ -192,6 +183,9 @@ function decryptText() {
     userText.style.display = "block";
     hideElementsAndDisplayCopyButton();
     cleanTextArea();
+
+    // Llamar a la función displayMessageLetterByLetter después de que la desencriptación se haya completado
+    displayMessageLetterByLetter("decrypted-message");
 }
 
 function showBubbleText() {
